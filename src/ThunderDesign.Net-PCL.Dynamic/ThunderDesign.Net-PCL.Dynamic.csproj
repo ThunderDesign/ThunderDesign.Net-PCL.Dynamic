@@ -6,6 +6,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ThunderDesign.Net-PCL.Threading" Version="1.0.0" />
+		<PackageReference Include="ThunderDesign.Net-PCL.Threading" Version="1.0.2" />
 	</ItemGroup>
 </Project>
