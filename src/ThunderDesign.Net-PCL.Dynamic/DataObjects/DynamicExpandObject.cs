@@ -9,7 +9,7 @@ namespace ThunderDesign.Net.Dynamic.DataObjects
     public class DynamicExpandObject : ThreadObject, IDynamicExpandObject
     {
         #region event handlers
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         #region properties

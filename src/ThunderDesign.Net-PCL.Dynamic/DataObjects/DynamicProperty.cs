@@ -23,7 +23,7 @@ namespace ThunderDesign.Net.Dynamic.DataObjects
         #endregion
 
         #region event handlers
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         #region properties
@@ -33,7 +33,7 @@ namespace ThunderDesign.Net.Dynamic.DataObjects
             private set;
         }
 
-        public object? Value
+        public object Value
         {
             get { return this.GetProperty(ref _Value, _Locker); }
             set { this.SetProperty(ref _Value, value, _Locker, true); }
@@ -48,7 +48,7 @@ namespace ThunderDesign.Net.Dynamic.DataObjects
         #endregion
 
         #region variables
-        protected object? _Value = null;
+        protected object _Value = null;
         #endregion
     }
 }
