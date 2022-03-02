@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<b:DynamicView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:SimpleContacts.Converters"
+    xmlns:vm="clr-namespace:SimpleContacts.ViewModels"
+    xmlns:v="clr-namespace:SimpleContacts.Views"
+    xmlns:b="clr-namespace:SimpleContacts.Views.Base"
+    Title="Contacts"
+    x:Class="SimpleContacts.Views.ContactsXMLView"
+    x:TypeArguments="vm:ContactsXMLViewModel">
+    <ContentPage.Resources>
+        <converters:ContactFullNameConverter x:Key="ContactFullNameConverterKey"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=OneWay}" Command="{Binding Source={RelativeSource AncestorType={x:Type v:ContactsXMLView}}, Path=RefreshViewCommand}" x:Name="rv">
+            <CollectionView 
+                ItemsSource="{Binding .}"
+                BindingContext="{Binding Source={RelativeSource AncestorType={x:Type vm:ContactsXMLViewModel}}, Path=ViewModelData.Properties[Contacts].Value.Properties[Contact].Value}"
+                SelectionMode="None" ItemsUpdatingScrollMode="KeepScrollOffset">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Span="1" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="2.5,10,2.5,10">
+                            <Frame BorderColor="LightGray"
+                                HasShadow="True"
+                                CornerRadius="22"
+                                BackgroundColor="LightBlue"
+                                Style="{StaticResource FrameGradient}">
+                                <Grid Padding="15,10,5,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0"
+                                        Text="Full Name = "
+                                        LineBreakMode="NoWrap"
+                                        Style="{StaticResource LabelTitle}" 
+                                        VerticalOptions="CenterAndExpand" 
+                                        HorizontalOptions="EndAndExpand" />
+                                    <Label Grid.Column="1" Grid.Row="0"
+                                        Text="{Binding ., Mode=OneWay, Converter={StaticResource ContactFullNameConverterKey}}"
+                                        Style="{StaticResource LabelLarge}" 
+                                        VerticalOptions="CenterAndExpand" 
+                                        HorizontalOptions="StartAndExpand" />
+                                    <Label Grid.Column="0" Grid.Row="1"
+                                        Text="Last Name = "
+                                        LineBreakMode="NoWrap"
+                                        Style="{StaticResource LabelMedium}" 
+                                        VerticalOptions="CenterAndExpand" 
+                                        HorizontalOptions="EndAndExpand" />
+                                    <Label  Grid.Column="1" Grid.Row="1"
+                                        Text="{Binding Value}"
+                                        BindingContext="{Binding Properties[LastName]}"
+                                        Style="{StaticResource LabelSmall}" 
+                                        VerticalOptions="CenterAndExpand" 
+                                        HorizontalOptions="StartAndExpand" />
+                                    <Label Grid.Column="0" Grid.Row="2"
+                                        Text="First Name = "
+                                        LineBreakMode="NoWrap"
+                                        Style="{StaticResource LabelMedium}" 
+                                        VerticalOptions="CenterAndExpand" 
+                                        HorizontalOptions="EndAndExpand" />
+                                    <Label  Grid.Column="1" Grid.Row="2"
+                                        Text="{Binding Value}"
+                                        BindingContext="{Binding Properties[FirstName]}"
+                                        Style="{StaticResource LabelSmall}" 
+                                        VerticalOptions="CenterAndExpand" 
+                                        HorizontalOptions="StartAndExpand" />
+                                </Grid>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</b:DynamicView>
