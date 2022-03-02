@@ -30,10 +30,13 @@ namespace ThunderDesign.Net.Dynamic.Extentions
                 {
                     IDynamicExpandObjectList<IDynamicExpandObject> dynamicExpandObjectList = new DynamicExpandObjectList<IDynamicExpandObject>();
 
-                    foreach (var element in node.Elements())
+                    foreach (var elementList in node.Elements())
                     {
                         IDynamicExpandObject dynamicExpandObject = (IDynamicExpandObject)Activator.CreateInstance(parent.GetType());
-                        Parse(dynamicExpandObject, element);
+                        foreach (var element in elementList.Elements())
+                        {
+                            Parse(dynamicExpandObject, element);
+                        }
                         dynamicExpandObjectList.Add(dynamicExpandObject);
                     }
                     IDynamicExpandObject parentExpandObject = (IDynamicExpandObject)Activator.CreateInstance(parent.GetType());

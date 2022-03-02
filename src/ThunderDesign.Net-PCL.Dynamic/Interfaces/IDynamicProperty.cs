@@ -6,7 +6,7 @@ namespace ThunderDesign.Net.Dynamic.Interfaces
     {
         #region properties
         string Name { get; }
-        object? Value { get; set; }
+        object Value { get; set; }
         #endregion
     }
 }

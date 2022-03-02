@@ -1,11 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFramework>netstandard2.0</TargetFramework>
 		<RootNamespace>ThunderDesign.Net_PCL.Dynamic</RootNamespace>
-		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ThunderDesign.Net-PCL.Threading" Version="1.0.2" />
+		<PackageReference Include="ThunderDesign.Net-PCL.Threading" Version="1.0.5" />
 	</ItemGroup>
 </Project>

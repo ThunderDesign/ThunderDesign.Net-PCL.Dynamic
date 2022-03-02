@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ThunderDesign.Net.Dynamic.Interfaces;
 using ThunderDesign.Net.Threading.Collections;
 
@@ -11,6 +12,11 @@ namespace ThunderDesign.Net.Dynamic.Collections
         private new void Add(string key, IDynamicProperty value)
         {
             //Hiding base.Add(TKey key, TValue value);
+        }
+
+        void IDictionary<string, IDynamicProperty>.Add(string key, IDynamicProperty value)
+        {
+            this.Add(value);
         }
 
         public void Add(IDynamicProperty value)
