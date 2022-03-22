@@ -3,7 +3,7 @@
 [![CD](https://github.com/ThunderDesign/ThunderDesign.Net-PCL.Dynamic/actions/workflows/CD.yml/badge.svg)](https://github.com/ThunderDesign/ThunderDesign.Net-PCL.Dynamic/actions/workflows/CD.yml)
 [![Nuget](https://img.shields.io/nuget/v/ThunderDesign.Net-PCL.Dynamic)](https://www.nuget.org/packages/ThunderDesign.Net-PCL.Dynamic)
 [![License](https://img.shields.io/github/license/ThunderDesign/ThunderDesign.Net-PCL.Dynamic)](https://github.com/ThunderDesign/ThunderDesign.Net-PCL.Dynamic/blob/main/LICENSE)
-[![Net](https://img.shields.io/badge/.net%20standard-2.0-blue)](https://github.com/ThunderDesign/ThunderDesign.Net-PCL.Dynamic/blob/main/README.md)
+[![Net](https://img.shields.io/badge/.net%20standard-v1.0%20--%20v2.1-blue)](https://github.com/ThunderDesign/ThunderDesign.Net-PCL.Dynamic/blob/main/README.md)
 
 A combination of generic Dynamic Thread-Safe objects that can be used in all application types.
 
